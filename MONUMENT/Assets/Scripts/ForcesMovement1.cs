@@ -14,8 +14,8 @@ namespace MONUMENT
         [SerializeField] private Rigidbody rb = null;
         [SerializeField] private Transform eyes = null;
         [SerializeField] private CameraHandler handler = null;
-        [SerializeField] private TowerActivator towerActivator = null;
-        [SerializeField] private MaterialColor materialColor = null;
+        //[SerializeField] private TowerActivator towerActivator = null;
+        //[SerializeField] private MaterialColor materialColor = null;
 
         [Header("Movement Settings")]
 
@@ -26,19 +26,25 @@ namespace MONUMENT
         [SerializeField] private float ungroundedAccelerationMultiplier = 0f;
 
         [SerializeField] private float jumpSpeed = 0f;
+        [SerializeField] private float wallJumpSpeed = 0f;
+        [SerializeField] private float wallJumpSpeedHorizontal = 0f;
 
         [Header("Grounded Settings")]
 
         [SerializeField] private LayerMask groundMask = 0;
         [SerializeField] private LayerMask wallMask = 0;
+        [SerializeField] private float wallRayLength = 0f;
+
         [SerializeField] private float groundColliderRadius = 0f;
         [SerializeField] private float groundColliderDownward = 0f;
         [SerializeField] private float maxGroundedAngle = 0f;
+        
 
-        private bool grounded;
-
-        private bool prevWall;
-        private bool walled;
+        private bool isGrounded;
+        private Vector3 wallJumpDirection;
+        private Vector3 movement;
+        private bool prevIsWalled;
+        private bool isWalled;
 
         private void Start()
         {
@@ -48,43 +54,48 @@ namespace MONUMENT
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && (grounded || walled))
+            if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || isWalled))
                 Jump();
         }
 
         private void Jump()
         {
-            Vector3 vec = jumpSpeed * Vector3.up;
+            Vector3 vec = (isWalled ? wallJumpSpeed : jumpSpeed) * Vector3.up;
 
             if (rb.velocity.y < 0f) { vec.y -= rb.velocity.y; }
 
+            if (isWalled) 
+            { 
+                rb.AddForce(wallJumpDirection * wallJumpSpeedHorizontal, ForceMode.VelocityChange);
+                //rb.AddForce(0.5f * wallJumpSpeedHorizontal * movement, ForceMode.VelocityChange);
+            }
             rb.AddForce(vec, ForceMode.VelocityChange);
         }
 
         private void FixedUpdate()
         {
-            CheckGrounded();
+            CheckIsGrounded();
 
-            prevWall = walled;
-            CheckWall();
+            prevIsWalled = isWalled;
+            CheckIsWalled();
 
-            if (!prevWall && walled)
+            if (!prevIsWalled && isWalled)
                 rb.AddForce(rb.velocity.y * Vector3.down, ForceMode.VelocityChange);
 
-            rb.useGravity = !walled;
+            rb.useGravity = !isWalled;
 
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, grounded ? maxGroundedVelocity : maxUngroundedVelocity);
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, isGrounded ? maxGroundedVelocity : maxUngroundedVelocity);
 
             handler.Refresh(eyes.position, rb.velocity, Time.time);
 
-            float acceleration = grounded ? movementAcceleration : movementAcceleration * ungroundedAccelerationMultiplier;
+            float acceleration = isGrounded ? movementAcceleration : movementAcceleration * ungroundedAccelerationMultiplier;
 
-            Vector3 movement = (transform.right * Input.GetAxisRaw("Horizontal")) + (transform.forward * Input.GetAxisRaw("Vertical"));
+            movement = (transform.right * Input.GetAxisRaw("Horizontal")) + (transform.forward * Input.GetAxisRaw("Vertical"));
             movement.Normalize();
 
             Vector3 velocity = rb.velocity;
 
-            materialColor.value = velocity.magnitude / maxGroundedVelocity;
+            //materialColor.value = velocity.magnitude / maxGroundedVelocity;
 
             velocity.y = 0f;
 
@@ -94,7 +105,7 @@ namespace MONUMENT
             {
                 rb.AddForce(Vector3.ClampMagnitude(acceleration * Time.fixedDeltaTime * movement, movementCutoffVelocityMagnitude - mag), ForceMode.VelocityChange);
             }
-            else if (grounded)
+            else if (isGrounded)
             {
                 rb.AddForce(Vector3.ClampMagnitude(acceleration * Time.fixedDeltaTime * -velocity.normalized, mag - movementCutoffVelocityMagnitude), ForceMode.VelocityChange);
             }
@@ -106,9 +117,9 @@ namespace MONUMENT
             rb.AddForce(counterMovement, ForceMode.VelocityChange);
         }
 
-        private void CheckGrounded()
+        private void CheckIsGrounded()
         {
-            grounded = false;
+            isGrounded = false;
 
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, groundColliderRadius, Vector3.down, groundColliderDownward, groundMask, QueryTriggerInteraction.Ignore);
 
@@ -118,14 +129,33 @@ namespace MONUMENT
 
                 if (Vector3.Angle(Vector3.up, hit.normal) <= maxGroundedAngle)
                 {
-                    grounded = true;
+                    isGrounded = true;
                 }
             }
         }
 
-        private void CheckWall()
+        private void CheckIsWalled()
         {
-            walled = Physics.OverlapSphere(transform.position, 0.51f, wallMask, QueryTriggerInteraction.Ignore).Length != 0;
+            if (CheckWall(Vector3.forward) || CheckWall(Vector3.back) || CheckWall(Vector3.left) || CheckWall(Vector3.right))
+                return;
+
+            wallJumpDirection = Vector3.zero;
+            isWalled = false;
+        }
+
+        private bool CheckWall(Vector3 dir) 
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, dir, out hit, wallRayLength, wallMask, QueryTriggerInteraction.Ignore))
+            {
+                isWalled = true;
+                wallJumpDirection = hit.normal;
+
+                return true;
+            }
+
+            return false;
         }
 
         private void OnDrawGizmos()

@@ -706,6 +706,22 @@ PrefabInstance:
       propertyPath: wallMask.m_Bits
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6723172473136790677, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
+      propertyPath: wallRayLength
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723172473136790677, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
+      propertyPath: jumpSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723172473136790677, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
+      propertyPath: wallJumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723172473136790677, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
+      propertyPath: wallJumpSpeedHorizontal
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 382942214, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
@@ -1167,7 +1183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 528343979218883283, guid: 2f18e668e1c050b48a10ec4acfee671d, type: 3}
-  height: 500
+  height: 400
   width: 10
   spacing: 20
   sideCount: 10
