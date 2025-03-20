@@ -45,6 +45,7 @@ namespace MONUMENT
         private Vector3 movement;
         private bool prevIsWalled;
         private bool isWalled;
+        private bool jumpBoosted;
 
         private void Start()
         {
@@ -60,13 +61,14 @@ namespace MONUMENT
 
         private void Jump()
         {
-            Vector3 vec = (isWalled ? wallJumpSpeed : jumpSpeed) * Vector3.up;
+            Vector3 vec = (jumpBoosted ? 2.5f : 1f) * (isWalled ? wallJumpSpeed : jumpSpeed) * Vector3.up;
 
             if (rb.velocity.y < 0f) { vec.y -= rb.velocity.y; }
 
             if (isWalled) 
             { 
                 rb.AddForce(wallJumpDirection * wallJumpSpeedHorizontal, ForceMode.VelocityChange);
+                rb.AddForce(rb.velocity * 0.5f, ForceMode.VelocityChange);
                 //rb.AddForce(0.5f * wallJumpSpeedHorizontal * movement, ForceMode.VelocityChange);
             }
             rb.AddForce(vec, ForceMode.VelocityChange);
@@ -80,7 +82,13 @@ namespace MONUMENT
             CheckIsWalled();
 
             if (!prevIsWalled && isWalled)
+            {
                 rb.AddForce(rb.velocity.y * Vector3.down, ForceMode.VelocityChange);
+                Vector3 vel = rb.velocity;
+                vel.y = 0f;
+                
+                rb.AddForce(-vel * 0.3f, ForceMode.VelocityChange);
+            }
 
             rb.useGravity = !isWalled;
 
@@ -120,6 +128,7 @@ namespace MONUMENT
         private void CheckIsGrounded()
         {
             isGrounded = false;
+            jumpBoosted = false;
 
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, groundColliderRadius, Vector3.down, groundColliderDownward, groundMask, QueryTriggerInteraction.Ignore);
 
@@ -130,6 +139,10 @@ namespace MONUMENT
                 if (Vector3.Angle(Vector3.up, hit.normal) <= maxGroundedAngle)
                 {
                     isGrounded = true;
+                    if (hit.transform.CompareTag("Cube")) 
+                    {
+                        jumpBoosted = true;
+                    }
                 }
             }
         }

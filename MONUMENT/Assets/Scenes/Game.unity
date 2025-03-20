@@ -722,6 +722,10 @@ PrefabInstance:
       propertyPath: wallJumpSpeedHorizontal
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6723172473136790677, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
+      propertyPath: maxUngroundedVelocity
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 382942214, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
