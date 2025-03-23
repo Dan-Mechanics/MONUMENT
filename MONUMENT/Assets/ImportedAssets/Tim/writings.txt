@@ -83,3 +83,5 @@ ik zou zeggen zorg dat alle endscreens in dezelfde scene zijn? of toch niet?
 dat is afhaneklijk van hoe zeker we zijn met deze shit.
 
 note to self: we need to go to UPR in future.
+
+for sens we can do json thing maybe.
