@@ -14,15 +14,15 @@ namespace MONUMENT
         [SerializeField] [Min(0f)] private float pointsToWin = default;
         [SerializeField] private UnityEvent onComplete = default;
 
-        //private float points;
+        private float points;
 
         private float Points 
         { 
-            get => Points;
+            get => points;
             set 
             {
-                Points = value;
-                OnPointsChanged?.Invoke(value, pointsToWin);
+                points = value;
+                OnPointsChanged?.Invoke(points, pointsToWin);
             }
         }
 

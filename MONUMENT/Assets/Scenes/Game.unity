@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 485055199}
   - component: {fileID: 485055198}
   m_Layer: 0
-  m_Name: GameContext
+  m_Name: Game Context
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -918,13 +918,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4353114958330189048, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 6723172472626007668, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
       propertyPath: m_Name
-      value: player
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6723172472626007675, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1463,7 +1459,7 @@ GameObject:
   - component: {fileID: 1721993179}
   - component: {fileID: 1721993178}
   m_Layer: 5
-  m_Name: klaproos
+  m_Name: item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1769,7 +1765,7 @@ GameObject:
   - component: {fileID: 1966669062}
   - component: {fileID: 1966669061}
   m_Layer: 5
-  m_Name: klaproos
+  m_Name: item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
