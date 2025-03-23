@@ -85,3 +85,6 @@ dat is afhaneklijk van hoe zeker we zijn met deze shit.
 note to self: we need to go to UPR in future.
 
 for sens we can do json thing maybe.
+
+
+can the widnow be fully maximised when we dont have stretching but ratio match ??
