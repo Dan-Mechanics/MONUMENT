@@ -6,9 +6,15 @@ namespace MONUMENT
     {
         [SerializeField] private Transform cam = default;
 
+        private void Awake()
+        {
+            if (cam == null) 
+                cam = GameObject.FindWithTag("MainCamera").transform;
+        }
+
         private void Update()
         {
-            this.transform.LookAt(this.cam.position, Vector3.up);
+            transform.LookAt(cam.position, Vector3.up);
         }
     }
 }
