@@ -190,7 +190,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  speed: 0.2
+  speed: 0.4
+  onDoneDelay: 1.5
 --- !u!225 &137022185
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -470,7 +471,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  speed: 0.2
+  speed: 0.4
+  onDoneDelay: 1.5
 --- !u!225 &416207266
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -717,7 +719,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  speed: 0.2
+  speed: 0.4
+  onDoneDelay: 1.5
 --- !u!225 &512435537
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1274,7 +1277,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  speed: 0.2
+  speed: 0.4
+  onDoneDelay: 1.5
 --- !u!1 &1809640512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,7 +1412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1500,7 +1504,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  speed: 0.2
+  speed: 0.4
+  onDoneDelay: 1.5
 --- !u!225 &2072248032
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1606,7 +1611,8 @@ MonoBehaviour:
   onDone:
     m_PersistentCalls:
       m_Calls: []
-  speed: 0.2
+  speed: 0.4
+  onDoneDelay: 1.5
 --- !u!225 &2078373621
 CanvasGroup:
   m_ObjectHideFlags: 0

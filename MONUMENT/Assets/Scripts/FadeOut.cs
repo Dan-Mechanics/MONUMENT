@@ -12,6 +12,7 @@ namespace MONUMENT
 
         [SerializeField] private UnityEvent onDone = default;
         [SerializeField] private float speed = 1f;
+        [SerializeField] private float onDoneDelay  =default;
 
         private CanvasGroup canvasGroup;
         private bool isFading;
@@ -21,10 +22,14 @@ namespace MONUMENT
             canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
             if (onStart)
+            {
+                yield return new WaitForSeconds(onDoneDelay);
+
                 Fade();
+            }
         }
 
         private void Update()
@@ -36,11 +41,17 @@ namespace MONUMENT
 
             if (canvasGroup.alpha <= 0f) 
             {
-                onDone?.Invoke();
-                isFading = false;
-                canvasGroup.alpha = 0f;
-                canvasGroup.blocksRaycasts = false;
+                Invoke(nameof(InvokeDone), onDoneDelay);
             }
+        }
+
+        private void InvokeDone() 
+        {
+            isFading = false;
+            canvasGroup.alpha = 0f;
+            canvasGroup.blocksRaycasts = false;
+
+            onDone?.Invoke();
         }
 
         public void Fade() 
