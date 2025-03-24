@@ -28,6 +28,7 @@ namespace MONUMENT
         [SerializeField] private float jumpSpeed = 0f;
         [SerializeField] private float wallJumpSpeed = 0f;
         [SerializeField] private float wallJumpSpeedHorizontal = 0f;
+        [SerializeField] private float velocityMult = 0f;
 
         [Header("Grounded Settings")]
 
@@ -68,7 +69,7 @@ namespace MONUMENT
             if (isWalled) 
             { 
                 rb.AddForce(wallJumpDirection * wallJumpSpeedHorizontal, ForceMode.VelocityChange);
-                rb.AddForce(rb.velocity * 0.5f, ForceMode.VelocityChange);
+                rb.AddForce(rb.velocity * velocityMult, ForceMode.VelocityChange);
                 //rb.AddForce(0.5f * wallJumpSpeedHorizontal * movement, ForceMode.VelocityChange);
             }
             rb.AddForce(vec, ForceMode.VelocityChange);
