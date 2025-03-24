@@ -10,11 +10,12 @@ namespace MONUMENT
     {
         [SerializeField] private Color[] colors = default;
         [SerializeField] private float speed = default;
+        [SerializeField] private bool randomStart = default;
 
         private Image image;
 
         int index1;
-        int index2 = 1;
+        int index2;
         float time;
 
         private void Awake()
@@ -24,8 +25,14 @@ namespace MONUMENT
 
         private void Start()
         {
-            index1 = 0;
-            index2 = 1;
+            if (randomStart) 
+            {
+                time = Random.Range(0f, 1f);
+                index1 = Random.Range(0, colors.Length);
+            }
+
+            index2 = index1 + 1;
+            if (index2 >= colors.Length) { index2 = 0; }
         }
 
         private void FixedUpdate()
