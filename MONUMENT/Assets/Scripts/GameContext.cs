@@ -10,17 +10,20 @@ namespace MONUMENT
         [SerializeField] private WinConditionHandler poppyWin = default;
         [SerializeField] private BarFloat spiritBar = default;
         [SerializeField] private BarFloat poppyBar = default;
+        [SerializeField] private ForcesMovement1 movement = default;
 
         private void Awake()
         {
             spritWin.OnPointsChanged += spiritBar.Refresh;
             poppyWin.OnPointsChanged += poppyBar.Refresh;
+            movement.OnGainSpiritPoints += spritWin.GainPoints;
         }
 
         private void OnDestroy()
         {
             spritWin.OnPointsChanged -= spiritBar.Refresh;
             poppyWin.OnPointsChanged -= poppyBar.Refresh;
+            movement.OnGainSpiritPoints -= spritWin.GainPoints;
         }
     }
 }

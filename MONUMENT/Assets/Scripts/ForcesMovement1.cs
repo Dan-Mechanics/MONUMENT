@@ -9,6 +9,8 @@ namespace MONUMENT
     /// </summary>
     public class ForcesMovement1 : MonoBehaviour
     {
+        public System.Action<float> OnGainSpiritPoints;
+        
         [Header("References")]
 
         [SerializeField] private Rigidbody rb = null;
@@ -29,6 +31,7 @@ namespace MONUMENT
         [SerializeField] private float wallJumpSpeed = 0f;
         [SerializeField] private float wallJumpSpeedHorizontal = 0f;
         [SerializeField] private float velocityMult = 0f;
+        [SerializeField] private float pointsGainedWhenSpiritJump = 0f;
 
         [Header("Grounded Settings")]
 
@@ -62,17 +65,25 @@ namespace MONUMENT
 
         private void Jump()
         {
-            Vector3 vec = (jumpBoosted ? 2.5f : 1f) * (isWalled ? wallJumpSpeed : jumpSpeed) * Vector3.up;
+            Vector3 vec = (isWalled ? wallJumpSpeed : jumpSpeed) * Vector3.up;
+
+            if (jumpBoosted)
+            {
+                vec *= 2.5f;
+                OnGainSpiritPoints?.Invoke(pointsGainedWhenSpiritJump);
+            }
 
             if (rb.velocity.y < 0f) { vec.y -= rb.velocity.y; }
 
-            if (isWalled) 
-            { 
+            rb.AddForce(vec, ForceMode.VelocityChange);
+
+            if (isWalled)
+            {
                 rb.AddForce(wallJumpDirection * wallJumpSpeedHorizontal, ForceMode.VelocityChange);
                 rb.AddForce(rb.velocity * velocityMult, ForceMode.VelocityChange);
-                //rb.AddForce(0.5f * wallJumpSpeedHorizontal * movement, ForceMode.VelocityChange);
+
+                OnGainSpiritPoints?.Invoke(pointsGainedWhenSpiritJump * 0.5f);
             }
-            rb.AddForce(vec, ForceMode.VelocityChange);
         }
 
         private void FixedUpdate()
@@ -110,6 +121,8 @@ namespace MONUMENT
 
             float mag = velocity.magnitude;
 
+            if (transform.position.y > 190f) { movementCutoffVelocityMagnitude *= 1.5f; }
+
             if (mag < movementCutoffVelocityMagnitude)
             {
                 rb.AddForce(Vector3.ClampMagnitude(acceleration * Time.fixedDeltaTime * movement, movementCutoffVelocityMagnitude - mag), ForceMode.VelocityChange);
@@ -118,6 +131,8 @@ namespace MONUMENT
             {
                 rb.AddForce(Vector3.ClampMagnitude(acceleration * Time.fixedDeltaTime * -velocity.normalized, mag - movementCutoffVelocityMagnitude), ForceMode.VelocityChange);
             }
+
+            if (transform.position.y > 190f) { movementCutoffVelocityMagnitude /= 1.5f; }
 
             Vector3 counterMovement = acceleration * Time.fixedDeltaTime * ungroundedAccelerationMultiplier * -(velocity.normalized - movement);
 
@@ -161,7 +176,7 @@ namespace MONUMENT
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, dir, out hit, wallRayLength, wallMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(transform.position, dir, out hit, wallRayLength, wallMask, QueryTriggerInteraction.Ignore) && hit.collider.CompareTag("Cube"))
             {
                 isWalled = true;
                 wallJumpDirection = hit.normal;

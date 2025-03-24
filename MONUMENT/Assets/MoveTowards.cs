@@ -27,7 +27,7 @@ namespace MONUMENT
             float mod = 1f;
 
             if (Vector3.Distance(transform.position, target.position) > 30f)
-                mod = 10f;
+                mod = 12.5f;
 
             rb.AddForce(acceleration * mod * (target.position - transform.position).normalized, ForceMode.Acceleration);
         }

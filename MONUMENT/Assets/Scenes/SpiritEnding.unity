@@ -975,6 +975,67 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1271833128
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6316501104269327930, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: locked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327931, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316501104269327933, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
+      propertyPath: m_Name
+      value: Scene Mouse Locker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7b9de60b51d6434bab19d4765458217, type: 3}
 --- !u!1001 &1292563610
 PrefabInstance:
   m_ObjectHideFlags: 0
