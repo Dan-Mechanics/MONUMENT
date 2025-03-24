@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace MONUMENT
 {
@@ -8,11 +6,15 @@ namespace MONUMENT
     {
         [SerializeField] private float speed = default;
         [SerializeField] private Rigidbody rb = default;
-
+        [SerializeField] private bool flatten = default;
 
         public void Push() 
         {
-            rb.AddForce(Random.insideUnitSphere * speed, ForceMode.VelocityChange);
+            Vector3 force = Random.insideUnitSphere * speed;
+            if (flatten)
+                force.y = 0f;
+
+            rb.AddForce(force, ForceMode.VelocityChange);
         }
     }
 }

@@ -11,12 +11,25 @@ namespace MONUMENT
         [SerializeField] private Rigidbody rb = default;
         [SerializeField] private Transform target = default;
 
+        private void Awake()
+        {
+            if (target != null)
+                return;
+
+            target = GameObject.FindWithTag("Player").transform;
+        }
+
         private void FixedUpdate()
         {
             if (Vector3.Distance(transform.position, target.position) <= closeDistance)
                 return;
 
-            rb.AddForce((target.position - transform.position).normalized * acceleration, ForceMode.Acceleration);
+            float mod = 1f;
+
+            if (Vector3.Distance(transform.position, target.position) > 30f)
+                mod = 10f;
+
+            rb.AddForce(acceleration * mod * (target.position - transform.position).normalized, ForceMode.Acceleration);
         }
     }
 }
