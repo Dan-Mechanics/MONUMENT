@@ -10,8 +10,9 @@ namespace MONUMENT
         [SerializeField] private RenderTexture rend = default;
         [SerializeField] private Texture2D outTexture = default;
         [SerializeField] private Image image = default;
-        [SerializeField] private int width, height;
-        
+        [SerializeField] private int width = default;
+        [SerializeField] private int height = default;
+
 
         private void Start()
         {

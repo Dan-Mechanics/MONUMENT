@@ -16,12 +16,6 @@ namespace MONUMENT
         private float mouseX;
         private float mouseY;
 
-        private void Start()
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
         private void Update()
         {
             if (Input.GetKey(KeyCode.LeftArrow)) { mouseDirection.x -= Time.deltaTime * 180f; }
