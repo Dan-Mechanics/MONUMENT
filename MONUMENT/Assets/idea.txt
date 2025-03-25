@@ -125,3 +125,64 @@ meer dan 3 goed om een goed te hebben dus kijk naar de grading.
 
 hier hanterern ze niers mag onvoldonde zijn.
 
+
+perforamcne in begin van game is niet boeiend.
+
+heel bewust zijn dat je static stuff hebt.
+belangr
+
+als prefab geen reference naar buiten is goed.
+
+niet perse belangrij kdat de game heel leuk zijjn ofzo maar het moet wel werken.
+
+ik moet ff goed code refactoren/
+
+
+dus de distance traveled moet niet verantwoordelijk zijn.
+
+dus omdat velocity is een composite, bodypart heeft een reference naar een velocity clas
+s
+dus daarme kan je direct velocifty uitlesen want wordt alleen maar gebruikt als onderdee.
+
+in context class opzetten van events maar je mag wel references door gevenen,
+reference injecten makkelijk,dat mag wel.
+
+bodypart.cs moet kijken of die in die beatzone zit, die registreert de collision
+en heeft velocity nodig om dat te registreren.
+
+bodypart raakt iets met een distance, 
+
+aparte script wat collision kan detected naar component, 
+het wordt bijna tot het punt dat het bodypart script neot meer nodig is want kleinere workers.
+nooit gek om tussen script als submanager
+niet direct met workers aan het prasten zijn, 
+
+toch relatief dom, want sub manager.
+trigger scritpje gebruiken op ander eplekken.
+
+ultevents, veel consistenter, ult events events innemment en niet bepekert een argument inspector.
+
+free asset.
+
+feature eenvoudig houden maar wel impact op de game, als je beschrijft visie op code en toe te passen project
+onderbouw je ideene ook met selsubscriber.
+
+met code is geen perfect solutions, soms moet je het gewoon maken wat het is.
+je wilt het niet te veel overengigereing.
+
+beetje decoupled schrijft en dan in een package.
+
+dingen heht waar je over twijfeld doe je gewoon red higjliften.
+en ook de colr feature.
+
+class hierarchy, heartbeat --> context --> manangers --> event visually
+
+je bent desentitiezed tegen je eigen code, #flip canvas.
+
+dit is gewoon een beetje hoe het werkt, er aan gelijmd,
+code is een beetje hetzelfde
+
+dit is very doable, 
+
+kijk ook ff naar je peerreviwes,
+
