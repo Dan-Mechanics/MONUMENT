@@ -10,6 +10,7 @@ namespace MONUMENT
         [SerializeField] private float width = default;
         [SerializeField] private float spacing = default;
         [SerializeField] private int sideCount = default;
+        [SerializeField] private float heightVariance = default;
 
         private void Start()
         {
@@ -24,7 +25,7 @@ namespace MONUMENT
                 for (int z = 0; z < sideCount; z++)
                 {
                     cube = Instantiate(cubePrefab, new Vector3(x * spacing, 0f, z * spacing) + transform.position, Quaternion.identity);
-                    cube.transform.localScale = new Vector3(width, height, width);
+                    cube.transform.localScale = new Vector3(width, height + Random.Range(-heightVariance, heightVariance), width);
                 }
             }
         }

@@ -14,7 +14,7 @@ namespace AppleAvalanche
         private void Start()
         {
             Application.targetFrameRate = 300;
-            Time.fixedDeltaTime = 1f / 64f;
+            //Time.fixedDeltaTime = 1f / 64f;
         }
 
         public void Switch(string name)

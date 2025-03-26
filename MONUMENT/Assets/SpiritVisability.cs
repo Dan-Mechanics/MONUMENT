@@ -18,7 +18,7 @@ namespace MONUMENT
 
         public void Roll() 
         {
-            float y = player.position.y;
+            float y = player.position.y + 10f;
             y = Mathf.Clamp(y, 0f, fullyVisibleHeight) / fullyVisibleHeight;
 
             graphics.SetActive(Random.value < y);

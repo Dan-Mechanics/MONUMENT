@@ -53,7 +53,7 @@ namespace MONUMENT
 
         private void Start()
         {
-            Application.targetFrameRate = 300;
+            //Application.targetFrameRate = 300;
             rb.sleepThreshold = 0f;
         }
 

@@ -22,7 +22,7 @@ namespace MONUMENT
             if (Input.GetKey(KeyCode.RightArrow)) { mouseDirection.x += Time.deltaTime * 180f; }
             if (Input.GetKey(KeyCode.UpArrow)) { mouseDirection.y += Time.deltaTime * 180f; }
             if (Input.GetKey(KeyCode.DownArrow)) { mouseDirection.y -= Time.deltaTime * 180f; }
-             
+
             mouseX = Input.GetAxisRaw("Mouse X");
             mouseY = Input.GetAxisRaw("Mouse Y");
 
