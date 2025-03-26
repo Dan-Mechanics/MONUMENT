@@ -196,9 +196,4 @@ veel code maar geen uitleg
 leg composites uit
 leg uit waarom selfsucrbiber.
 
-ik moet ook ff aandocumentatie werken.
-
-//
-
-also write documentation
-	
+ik moet ook ff aandocumentatie werken.	
