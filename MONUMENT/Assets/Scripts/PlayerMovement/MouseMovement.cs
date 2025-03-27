@@ -17,16 +17,20 @@ namespace MONUMENT
         private void Start()
         {
             SaveData data = SaveSystem.Load();
+
             if (data != null)
+            {
                 sensitvity = data.sens;
+                print(sensitvity);
+            }
         }
 
         private void Update()
         {
-            if (Input.GetKey(KeyCode.LeftArrow)) { mouseDirection.x -= Time.deltaTime * 180f; }
+            /*if (Input.GetKey(KeyCode.LeftArrow)) { mouseDirection.x -= Time.deltaTime * 180f; }
             if (Input.GetKey(KeyCode.RightArrow)) { mouseDirection.x += Time.deltaTime * 180f; }
             if (Input.GetKey(KeyCode.UpArrow)) { mouseDirection.y += Time.deltaTime * 180f; }
-            if (Input.GetKey(KeyCode.DownArrow)) { mouseDirection.y -= Time.deltaTime * 180f; }
+            if (Input.GetKey(KeyCode.DownArrow)) { mouseDirection.y -= Time.deltaTime * 180f; }*/
 
             mouseX = Input.GetAxisRaw("Mouse X");
             mouseY = Input.GetAxisRaw("Mouse Y");

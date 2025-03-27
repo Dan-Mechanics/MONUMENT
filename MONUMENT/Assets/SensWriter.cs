@@ -14,15 +14,26 @@ namespace MONUMENT
         private void Start()
         {
             field.text = SaveSystem.Load()?.sens.ToString();
+
+            Write();
+            field.text = sens.ToString();
         }
 
         public void Write() 
         {
-            float.TryParse(field.text, out sens);
+            field.text = field.text.Replace(".", ",");
+
+            if (!float.TryParse(field.text, out sens) || sens <= 0f)
+                sens = DEFAULT_SENS;
         }
 
         public void OnDestroy()
         {
+            Write();
+            field.text = sens.ToString();
+
+            print(sens);
+
             SaveSystem.Save(sens);
         }
     }

@@ -14,6 +14,8 @@ namespace MONUMENT
 
             BinaryFormatter formatter = new BinaryFormatter();
 
+            // doesnt this just make 1000000 new files ??? or like what/
+            // maybe it automatically overwrites the previous one.
             FileStream stream = new FileStream(Path, FileMode.Create);
 
             SaveData saveData = new SaveData(sens);
