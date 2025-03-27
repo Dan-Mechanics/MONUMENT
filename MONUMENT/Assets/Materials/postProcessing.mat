@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: postProcessing
-  m_Shader: {fileID: -6465566751694194690, guid: dc2707f688c748445ae9e3c64f56eb13, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 80540ba75035f0a4cbe57c04df2c0630, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -111,13 +111,15 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _brightness: 1
+    - _brightness: 0.25
+    - _brightnessBands: 32
     - _brightnessSteps: 100
-    - _colorBands: 100
-    - _colorSteps: 16
+    - _colorBands: 32
+    - _colorSteps: 32
     - _foggyness: 0
     - _noiseScale: 285
     - _noiseSpeed: 2
+    - _smoothing: 0.25
     - _speed: 2
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

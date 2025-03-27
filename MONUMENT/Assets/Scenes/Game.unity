@@ -492,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448879446904749912, guid: 6d0cfaa92fe6d1c428c2c2c42d60eb3b, type: 3}
       propertyPath: field of view
-      value: 70
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7448879446904749912, guid: 6d0cfaa92fe6d1c428c2c2c42d60eb3b, type: 3}
       propertyPath: far clip plane
@@ -564,7 +564,7 @@ PrefabInstance:
       objectReference: {fileID: 1174472999}
     - target: {fileID: 7448879446904749918, guid: 6d0cfaa92fe6d1c428c2c2c42d60eb3b, type: 3}
       propertyPath: m_Name
-      value: eyes
+      value: Main Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
