@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MONUMENT
 {
@@ -10,11 +8,18 @@ namespace MONUMENT
         private const float MAX_CAM_ANGLE = 90f;
 
         [SerializeField] private Transform cam = null;
-        [SerializeField] private float sensitvity = 0.33f;
 
+        private float sensitvity = SensWriter.DEFAULT_SENS;
         private Vector2 mouseDirection;
         private float mouseX;
         private float mouseY;
+
+        private void Start()
+        {
+            SaveData data = SaveSystem.Load();
+            if (data != null)
+                sensitvity = data.sens;
+        }
 
         private void Update()
         {

@@ -13,7 +13,8 @@ namespace MONUMENT
         [SerializeField] private Item heldItem = default;
         [SerializeField] private Vector2 itemPosUI = default;
         [SerializeField] private Vector2 shadowOffset = default;
-        
+        [SerializeField] private float scale = default;
+
         private void Start()
         {
             SetItem(heldItem);
@@ -37,7 +38,7 @@ namespace MONUMENT
                 RectTransform rect = images[i].GetComponent<RectTransform>();
 
                 rect.localPosition = itemPosUI + item.offset + currShadowOffset;
-                rect.localScale = Vector3.one * item.scale;
+                rect.localScale = item.scale * scale * Vector3.one;
             }
         }
     }

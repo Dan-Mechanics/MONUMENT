@@ -8,7 +8,7 @@ namespace MONUMENT
     /// 
     /// Gotta try unity unit tests !! poggg
     /// </summary>
-    public class ForcesMovement1 : MonoBehaviour
+    public class ForcesMovement : MonoBehaviour
     {
         public Action<float> OnGainSpiritPoints;
         
@@ -17,8 +17,6 @@ namespace MONUMENT
         [SerializeField] private Rigidbody rb = null;
         [SerializeField] private Transform eyes = null;
         [SerializeField] private CameraHandler handler = null;
-        //[SerializeField] private TowerActivator towerActivator = null;
-        //[SerializeField] private MaterialColor materialColor = null;
 
         [Header("Movement Settings")]
 
@@ -33,6 +31,7 @@ namespace MONUMENT
         [SerializeField] private float wallJumpSpeedHorizontal = 0f;
         [SerializeField] private float velocityMult = 0f;
         [SerializeField] private float pointsGainedWhenSpiritJump = 0f;
+        [SerializeField] private float speedIncreaseHeight = 0f;
 
         [Header("Grounded Settings")]
 
@@ -116,13 +115,11 @@ namespace MONUMENT
 
             Vector3 velocity = rb.velocity;
 
-            //materialColor.value = velocity.magnitude / maxGroundedVelocity;
-
             velocity.y = 0f;
 
             float mag = velocity.magnitude;
 
-            if (transform.position.y > 190f) { movementCutoffVelocityMagnitude *= 1.5f; }
+            if (transform.position.y > speedIncreaseHeight) { movementCutoffVelocityMagnitude *= 1.5f; }
 
             if (mag < movementCutoffVelocityMagnitude)
             {
@@ -175,9 +172,7 @@ namespace MONUMENT
 
         private bool CheckWall(Vector3 dir) 
         {
-            RaycastHit hit;
-
-            if (Physics.Raycast(transform.position, dir, out hit, wallRayLength, wallMask, QueryTriggerInteraction.Ignore) && hit.collider.CompareTag("Cube"))
+            if (Physics.Raycast(transform.position, dir, out RaycastHit hit, wallRayLength, wallMask, QueryTriggerInteraction.Ignore) && hit.collider.CompareTag("Cube"))
             {
                 isWalled = true;
                 wallJumpDirection = hit.normal;

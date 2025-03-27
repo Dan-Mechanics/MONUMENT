@@ -343,6 +343,7 @@ MonoBehaviour:
   heldItem: {fileID: 11400000, guid: a9c4e63f6f442fd4f9f3ef9f10823075, type: 2}
   itemPosUI: {x: 377, y: -343}
   shadowOffset: {x: -5, y: -5}
+  scale: 1
 --- !u!114 &3700193763224276230
 MonoBehaviour:
   m_ObjectHideFlags: 0
