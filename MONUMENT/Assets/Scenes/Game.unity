@@ -1434,7 +1434,7 @@ PrefabInstance:
     - target: {fileID: 1174473001, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
       propertyPath: heldItem
       value: 
-      objectReference: {fileID: 11400000, guid: beda46460eb79764f830fd6733bb4de0, type: 2}
+      objectReference: {fileID: 11400000, guid: a9c4e63f6f442fd4f9f3ef9f10823075, type: 2}
     - target: {fileID: 3700193763224276230, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
       propertyPath: poppy
       value: 
