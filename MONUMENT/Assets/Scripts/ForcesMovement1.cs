@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 namespace MONUMENT
 {
@@ -9,7 +10,7 @@ namespace MONUMENT
     /// </summary>
     public class ForcesMovement1 : MonoBehaviour
     {
-        public System.Action<float> OnGainSpiritPoints;
+        public Action<float> OnGainSpiritPoints;
         
         [Header("References")]
 

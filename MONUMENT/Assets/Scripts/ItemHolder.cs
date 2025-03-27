@@ -7,11 +7,13 @@ namespace MONUMENT
 {
     class ItemHolder : MonoBehaviour
     {
+        public Item HeldItem => heldItem;
+        
         [SerializeField] private Image[] images = default;
         [SerializeField] private Item heldItem = default;
         [SerializeField] private Vector2 itemPosUI = default;
         [SerializeField] private Vector2 shadowOffset = default;
-
+        
         private void Start()
         {
             SetItem(heldItem);
@@ -19,6 +21,8 @@ namespace MONUMENT
 
         public void SetItem(Item item)
         {
+            heldItem = item;
+            
             for (int i = 0; i < images.Length; i++)
             {
                 images[i].enabled = item != null;
