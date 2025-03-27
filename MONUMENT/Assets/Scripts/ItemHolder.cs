@@ -8,8 +8,9 @@ namespace MONUMENT
     class ItemHolder : MonoBehaviour
     {
         [SerializeField] private Image[] images = default;
-
         [SerializeField] private Item heldItem = default;
+        [SerializeField] private Vector2 itemPosUI = default;
+        [SerializeField] private Vector2 shadowOffset = default;
 
         private void Start()
         {
@@ -20,9 +21,19 @@ namespace MONUMENT
         {
             for (int i = 0; i < images.Length; i++)
             {
+                images[i].enabled = item != null;
+
+                if (item == null)
+                    continue;
+
                 images[i].sprite = item.sprite;
                 images[i].SetNativeSize();
-                images[i].GetComponent<RectTransform>().localPosition = item.pos;
+
+                Vector2 currShadowOffset = i > 0 ? this.shadowOffset : Vector2.zero;
+                RectTransform rect = images[i].GetComponent<RectTransform>();
+
+                rect.localPosition = itemPosUI + item.offset + currShadowOffset;
+                rect.localScale = Vector3.one * item.scale;
             }
         }
     }

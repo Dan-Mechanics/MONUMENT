@@ -8,6 +8,7 @@ namespace MONUMENT
     public class Item : ScriptableObject
     {
         public Sprite sprite;
-        public Vector2 pos;
+        public Vector2 offset;
+        public float scale;
     }
 }
