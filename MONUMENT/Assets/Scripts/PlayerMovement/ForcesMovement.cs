@@ -90,6 +90,11 @@ namespace MONUMENT
         {
             CheckIsGrounded();
 
+            if (Input.GetKey(KeyCode.H)) 
+            {
+                rb.AddForce(Vector3.up * 10f, ForceMode.VelocityChange);
+            }
+
             prevIsWalled = isWalled;
             CheckIsWalled();
 
