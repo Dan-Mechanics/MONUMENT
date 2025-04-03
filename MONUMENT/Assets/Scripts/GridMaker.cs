@@ -19,14 +19,12 @@ namespace MONUMENT
             transform.position = new Vector3(-totalLength / 2f, transform.position.y, -totalLength / 2f);
             
             GameObject cube;
-            
+
             for (int x = 0; x < sideCount; x++)
             {
                 for (int z = 0; z < sideCount; z++)
                 {
                     cube = Instantiate(cubePrefab, new Vector3(x * spacing, Random.Range(-heightVariance, 0f), z * spacing) + transform.position, Quaternion.identity);
-                    // cube.transform.localScale = new Vector3(width, height + Random.Range(-heightVariance, heightVariance), width);
-
                     cube.transform.localScale = new Vector3(width, height, width);
                 }
             }
