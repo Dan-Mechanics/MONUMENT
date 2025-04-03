@@ -102,6 +102,13 @@ namespace MONUMENT
                 rb.AddForce(-vel * 0.3f, ForceMode.VelocityChange);
             }
 
+            if (isWalled) 
+            {
+                Vector3 vel = rb.velocity;
+                vel.y = 0f;
+                rb.velocity = vel;
+            }
+
             rb.useGravity = !isWalled;
 
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, isGrounded ? maxGroundedVelocity : maxUngroundedVelocity);
