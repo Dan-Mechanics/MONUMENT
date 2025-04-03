@@ -24,8 +24,10 @@ namespace MONUMENT
             {
                 for (int z = 0; z < sideCount; z++)
                 {
-                    cube = Instantiate(cubePrefab, new Vector3(x * spacing, 0f, z * spacing) + transform.position, Quaternion.identity);
-                    cube.transform.localScale = new Vector3(width, height + Random.Range(-heightVariance, heightVariance), width);
+                    cube = Instantiate(cubePrefab, new Vector3(x * spacing, Random.Range(-heightVariance, 0f), z * spacing) + transform.position, Quaternion.identity);
+                    // cube.transform.localScale = new Vector3(width, height + Random.Range(-heightVariance, heightVariance), width);
+
+                    cube.transform.localScale = new Vector3(width, height, width);
                 }
             }
         }
