@@ -15,6 +15,13 @@ namespace MONUMENT
         [SerializeField] private Vector2 shadowOffset = default;
         [SerializeField] private float scale = default;
 
+        [SerializeField] private Color gray = Color.white;
+        [SerializeField] private Image poppyHotbar = default;
+        [SerializeField] private Image shearsHotbar = default;
+        [SerializeField] private Image[] hotbars = default;
+        [SerializeField] private Item poppy = default;
+        [SerializeField] private Item shears = default;
+
         private void Start()
         {
             SetItem(heldItem);
@@ -28,7 +35,22 @@ namespace MONUMENT
         public void SetItem(Item item)
         {
             heldItem = item;
-            
+
+            for (int i = 0; i < hotbars.Length; i++)
+            {
+                hotbars[i].color = gray;
+            }
+
+            // Could make this better but this is first iteration EYY ??
+            if (heldItem == poppy) 
+            {
+                poppyHotbar.color = Color.white;
+            }
+            else if (heldItem == shears)
+            {
+                shearsHotbar.color = Color.white;
+            }
+
             for (int i = 0; i < images.Length; i++)
             {
                 images[i].enabled = item != null;
