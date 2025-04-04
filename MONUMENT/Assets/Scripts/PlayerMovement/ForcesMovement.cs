@@ -131,7 +131,8 @@ namespace MONUMENT
 
             float mag = velocity.magnitude;
 
-            if (transform.position.y > speedIncreaseHeight) { movementCutoffVelocityMagnitude *= 1.5f; }
+            bool speedIncrease = transform.position.y > speedIncreaseHeight;
+            if (speedIncrease) { movementCutoffVelocityMagnitude *= 1.5f; }
 
             if (mag < movementCutoffVelocityMagnitude)
             {
@@ -142,7 +143,7 @@ namespace MONUMENT
                 rb.AddForce(Vector3.ClampMagnitude(acceleration * Time.fixedDeltaTime * -velocity.normalized, mag - movementCutoffVelocityMagnitude), ForceMode.VelocityChange);
             }
 
-            if (transform.position.y > 190f) { movementCutoffVelocityMagnitude /= 1.5f; }
+            if (speedIncrease) { movementCutoffVelocityMagnitude /= 1.5f; }
 
             Vector3 counterMovement = acceleration * Time.fixedDeltaTime * ungroundedAccelerationMultiplier * -(velocity.normalized - movement);
 
