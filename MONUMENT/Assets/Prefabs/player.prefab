@@ -191,6 +191,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0.7764706, g: 0.5803922, b: 1, a: 1}
   fullyVisibleHeight: 190
+--- !u!1 &1738129893982454352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8618678715829946608}
+  - component: {fileID: 4189306628332875896}
+  m_Layer: 0
+  m_Name: reverb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8618678715829946608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738129893982454352}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6723172472626007675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!167 &4189306628332875896
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738129893982454352}
+  m_Enabled: 1
+  m_MinDistance: 10
+  m_MaxDistance: 300
+  m_ReverbPreset: 19
+  m_Room: -1000
+  m_RoomHF: -1000
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.83
+  m_Reflections: -10000
+  m_ReflectionsDelay: 0.061
+  m_Reverb: 500
+  m_ReverbDelay: 0.025
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &6723172472470761658
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +370,7 @@ Transform:
   - {fileID: 149071402086303773}
   - {fileID: 6723172472470761657}
   - {fileID: 4353114958330189048}
+  - {fileID: 8618678715829946608}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6723172472626007673
@@ -427,7 +484,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 79ade1d138589ab409cf858d2bbe08fa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.35
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -530,6 +587,15 @@ MonoBehaviour:
   itemPosUI: {x: 377, y: -343}
   shadowOffset: {x: -5, y: -5}
   scale: 1
+  gray: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
+  poppyHotbar: {fileID: 0}
+  shearsHotbar: {fileID: 0}
+  hotbars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  poppy: {fileID: 11400000, guid: 61cce62b15d2a5f48a9d40e4736ad52b, type: 2}
+  shears: {fileID: 11400000, guid: a9c4e63f6f442fd4f9f3ef9f10823075, type: 2}
 --- !u!114 &3700193763224276230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,6 +612,8 @@ MonoBehaviour:
   pointsGainedPerPoppy: 10
   poppy: {fileID: 11400000, guid: 61cce62b15d2a5f48a9d40e4736ad52b, type: 2}
   shears: {fileID: 11400000, guid: a9c4e63f6f442fd4f9f3ef9f10823075, type: 2}
+  source: {fileID: 618769938}
+  shearsSound: {fileID: 8300000, guid: 2243459aecb9bbb49a40bb3bd49bd682, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 1025

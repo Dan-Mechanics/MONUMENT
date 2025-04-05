@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e983c34e2f2c84cb5a8e231bf557f6, type: 3}
   m_Name: poppy
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 7613dc8775e3a794b8e08494946ed432, type: 3}
+  sprite: {fileID: 21300000, guid: 4911cc121ee5f984e9455358baa86db9, type: 3}
   offset: {x: 0, y: 100}
   scale: 1

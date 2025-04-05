@@ -18,6 +18,9 @@ namespace MONUMENT
         [SerializeField] private Item poppy = default;
         [SerializeField] private Item shears = default;
 
+        [SerializeField] private AudioSource source = default;
+        [SerializeField] private AudioClip shearsSound = default;
+
         [Header("Raycast")]
 
         [SerializeField] private LayerMask mask = default;
@@ -56,6 +59,7 @@ namespace MONUMENT
             if (poppyBehaviour != null && itemHolder.HeldItem == shears)
             {
                 itemHolder.SetItem(poppy);
+                source.PlayOneShot(shearsSound);
                 poppyBehaviour.Interact();
 
                 return;

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e983c34e2f2c84cb5a8e231bf557f6, type: 3}
   m_Name: shears
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 7e2b533f14bf4f841ae5066c6b65efc1, type: 3}
+  sprite: {fileID: 21300000, guid: dfe51ad4dce3c8840914cdc5b91b230c, type: 3}
   offset: {x: 0, y: 30}
   scale: 1.5

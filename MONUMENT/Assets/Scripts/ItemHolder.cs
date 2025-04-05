@@ -27,10 +27,10 @@ namespace MONUMENT
             SetItem(heldItem);
         }
 
-        private void FixedUpdate()
+        /*private void FixedUpdate()
         {
             SetItem(heldItem);
-        }
+        }*/
 
         public void SetItem(Item item)
         {
