@@ -5,6 +5,7 @@ namespace AppleAvalanche
 {
     /// <summary>
     /// Changes update rates.
+    /// Also does quit() but cant rename yet.
     /// </summary>
     public class SceneSwitcher : MonoBehaviour
     {
@@ -16,6 +17,17 @@ namespace AppleAvalanche
             Application.targetFrameRate = 300;
             //Time.fixedDeltaTime = 1f / 64f;
         }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.R))
+                Switch(SceneManager.GetActiveScene().name);
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+                Quit();
+        }
+
+        public void Quit() => Application.Quit();
 
         public void Switch(string name)
         {

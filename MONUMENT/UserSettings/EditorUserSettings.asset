@@ -9,12 +9,15 @@ EditorUserSettings:
       value: 5b5757545001080e0c560d7349710f44464e1a7b2e7027327c2c4b63b3b0376c
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 0509525352015108540a542141270e4415154f79282d7260787f446be1b96660
-      flags: 0
-    RecentlyUsedSceneGuid-2:
       value: 0054075750535d09550a5577137a0d4445154b782d7a74697c2f4b66e1e4353d
       flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 5152025606020f0c0b08587a472107444e4e412f7a7f7166792f1f63b6b7356e
+      flags: 0
     RecentlyUsedSceneGuid-3:
+      value: 0509525352015108540a542141270e4415154f79282d7260787f446be1b96660
+      flags: 0
+    RecentlyUsedSceneGuid-4:
       value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
       flags: 0
     UnityEditor.ShaderGraph.Blackboard:
