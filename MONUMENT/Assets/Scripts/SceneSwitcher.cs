@@ -14,7 +14,7 @@ namespace MONUMENT
     {
         public Action<float> OnSwitchDelayed;
 
-        [SerializeField] private float switchTime = 0.75f;
+        [SerializeField] private float switchTime = 1f;
         private bool isSwitching;
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace MONUMENT
 
         public void Quit() 
         {
-            print("QUIT !!");
+            print("quitting game ...");
             Application.Quit();
         }
 

@@ -21,7 +21,7 @@ namespace MONUMENT
             if (data != null)
             {
                 sensitvity = data.sens;
-                print(sensitvity);
+                print($"sens : {sensitvity}");
             }
         }
 
