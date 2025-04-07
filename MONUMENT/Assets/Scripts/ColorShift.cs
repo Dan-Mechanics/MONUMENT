@@ -5,23 +5,24 @@ using UnityEngine.UI;
 
 namespace MONUMENT
 {
-    [RequireComponent(typeof(Image))]
     public class ColorShift : MonoBehaviour
     {
         [SerializeField] private Color[] colors = default;
         [SerializeField] private float speed = default;
         [SerializeField] private bool randomStart = default;
 
-        private Image image;
+        //private Image image;
+
+        [SerializeField] private SpriteRenderer rend = null;
 
         int index1;
         int index2;
         float time;
 
-        private void Awake()
+        /*private void Awake()
         {
             image = GetComponent<Image>();
-        }
+        }*/
 
         private void Start()
         {
@@ -50,7 +51,7 @@ namespace MONUMENT
                 time = 0f;
             }
 
-            image.color = Color.Lerp(colors[index1], colors[index2], time);
+            rend.color = Color.Lerp(colors[index1], colors[index2], time);
         }
     }
 }
