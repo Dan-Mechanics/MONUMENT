@@ -11,6 +11,12 @@ namespace MONUMENT
 
         private void OnTriggerEnter(Collider other)
         {
+            if (!gameObject.activeSelf)
+                return;
+
+            if (!gameObject.activeInHierarchy)
+                return;
+            
             if (!other.CompareTag(targetTag))
                 return;
 

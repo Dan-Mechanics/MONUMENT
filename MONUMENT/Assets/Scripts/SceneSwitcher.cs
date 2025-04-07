@@ -1,7 +1,10 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace AppleAvalanche
+namespace MONUMENT
 {
     /// <summary>
     /// Changes update rates.
@@ -9,6 +12,11 @@ namespace AppleAvalanche
     /// </summary>
     public class SceneSwitcher : MonoBehaviour
     {
+        public Action<float> OnSwitchDelayed;
+
+        [SerializeField] private float switchTime = 0.75f;
+        private bool isSwitching;
+
         /// <summary>
         /// We do this here because the SceneSwitcher is present in each scene.
         /// </summary>
@@ -20,18 +28,52 @@ namespace AppleAvalanche
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.R))
-                Switch(SceneManager.GetActiveScene().name);
+            if (Input.GetKeyDown(KeyCode.R))
+                Reload();
 
             if (Input.GetKeyDown(KeyCode.Escape))
                 Quit();
         }
 
-        public void Quit() => Application.Quit();
+        public void Reload()
+        {
+            Switch(SceneManager.GetActiveScene().name);
+        }
+
+        public void Quit() 
+        {
+            print("QUIT !!");
+            Application.Quit();
+        }
 
         public void Switch(string name)
         {
+            if (name == "Quit")
+            {
+                Quit();
+                return;
+            }
+            
             SceneManager.LoadScene(name);
+        }
+
+        public void SwitchDelayed(string name) 
+        {
+            if (isSwitching)
+                return;
+            
+            isSwitching = true;
+
+            OnSwitchDelayed?.Invoke(switchTime);
+
+            StartCoroutine(SwitchDelayedCoroutine(name));
+        }
+
+        private IEnumerator SwitchDelayedCoroutine(string name) 
+        {
+            yield return new WaitForSeconds(switchTime);
+
+            Switch(name);
         }
     }
 }
