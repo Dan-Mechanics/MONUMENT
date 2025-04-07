@@ -166,7 +166,7 @@ namespace MONUMENT
                 if (Vector3.Angle(Vector3.up, hit.normal) <= maxGroundedAngle)
                 {
                     isGrounded = true;
-                    if (hit.transform.CompareTag("Cube")) 
+                    if (hit.transform.CompareTag("Cube") || hit.transform.CompareTag("Climbable")) 
                     {
                         jumpBoosted = true;
                     }
@@ -185,7 +185,7 @@ namespace MONUMENT
 
         private bool CheckWall(Vector3 dir) 
         {
-            if (Physics.Raycast(transform.position, dir, out RaycastHit hit, wallRayLength, wallMask, QueryTriggerInteraction.Ignore) && hit.collider.CompareTag("Cube"))
+            if (Physics.Raycast(transform.position, dir, out RaycastHit hit, wallRayLength, wallMask, QueryTriggerInteraction.Ignore) && hit.collider.CompareTag("Climbable"))
             {
                 isWalled = true;
                 wallJumpDirection = hit.normal;

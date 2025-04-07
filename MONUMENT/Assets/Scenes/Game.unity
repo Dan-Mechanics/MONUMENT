@@ -159,8 +159,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 250
+  MinDistance: 10
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1601,8 +1601,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0957249, y: 1, z: 1.200232}
-  m_Center: {x: 0.042231493, y: 0, z: -0.11781575}
+  m_Size: {x: 0.86845034, y: 0.5426128, z: 0.9984309}
+  m_Center: {x: 0.008865576, y: 0.16335055, z: -0.10805144}
 --- !u!4 &1037498964
 Transform:
   m_ObjectHideFlags: 0
@@ -1913,6 +1913,10 @@ PrefabInstance:
     - target: {fileID: 6723172472626007668, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723172472626007672, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6723172472626007675, guid: fe348164d2b96da4f89feb3a49fbdd85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2305,6 +2309,10 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3594243245622329198, guid: e7222b5a701f3c245a9d4b91bd33a56f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594243245622329198, guid: e7222b5a701f3c245a9d4b91bd33a56f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2366,6 +2374,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7640558969779515294, guid: e7222b5a701f3c245a9d4b91bd33a56f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 572733545}
+    - targetCorrespondingSourceObject: {fileID: 6014503084441653313, guid: e7222b5a701f3c245a9d4b91bd33a56f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2000332486}
     - targetCorrespondingSourceObject: {fileID: 5252682845850649624, guid: e7222b5a701f3c245a9d4b91bd33a56f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1348233636}
@@ -3810,6 +3821,9 @@ MonoBehaviour:
   spacing: 20
   sideCount: 10
   heightVariance: 50
+  clibmablePilalrTag: Climbable
+  climbablePillarPercange: 0.9
+  climbablePillarMatrial: {fileID: 2100000, guid: 2f3222292daec984fbbfa1035f886b36, type: 2}
 --- !u!4 &1932951116
 Transform:
   m_ObjectHideFlags: 0
@@ -3854,7 +3868,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dda3adcab9b71324da4e0ea22e033e45, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3863,7 +3877,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 250
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -3983,7 +3997,7 @@ Transform:
   m_GameObject: {fileID: 1953176281}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 120, z: 0}
+  m_LocalPosition: {x: 0, y: 130, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4064,6 +4078,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966669059}
   m_CullTransparentMesh: 0
+--- !u!1 &2000332482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6014503084441653313, guid: e7222b5a701f3c245a9d4b91bd33a56f, type: 3}
+  m_PrefabInstance: {fileID: 1348233633}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2000332486
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000332482}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3537709356157935800, guid: e7222b5a701f3c245a9d4b91bd33a56f, type: 3}
 --- !u!4 &2064650600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2845116985629850976, guid: c00bd4fe04eb6e34d9361fd510ea3db3, type: 3}
@@ -4294,7 +4335,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3822360751077534066, guid: 6f8d7194bca0a3d46a88d1df4ca83220, type: 3}
       propertyPath: count
-      value: 65
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5935253583237334391, guid: 6f8d7194bca0a3d46a88d1df4ca83220, type: 3}
       propertyPath: m_Name
@@ -4392,6 +4433,10 @@ PrefabInstance:
     - target: {fileID: 1405143846286415751, guid: e5a4e6cedbdd9324d9dd5be4a08a6afb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728155701584386863, guid: e5a4e6cedbdd9324d9dd5be4a08a6afb, type: 3}
+      propertyPath: count
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4880154071741224406, guid: e5a4e6cedbdd9324d9dd5be4a08a6afb, type: 3}
       propertyPath: m_Name

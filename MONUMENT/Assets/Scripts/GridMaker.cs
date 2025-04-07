@@ -12,6 +12,11 @@ namespace MONUMENT
         [SerializeField] private int sideCount = default;
         [SerializeField] private float heightVariance = default;
 
+        //[SerializeField] private float normalPillarTag = default;
+        [SerializeField] private string clibmablePilalrTag = default;
+        [SerializeField] [Range(0f, 1f)] private float climbablePillarPercange = default;
+        [SerializeField] private Material climbablePillarMatrial = default;
+
         private void Start()
         {
             float totalLength = spacing * (sideCount - 1);
@@ -26,6 +31,12 @@ namespace MONUMENT
                 {
                     cube = Instantiate(cubePrefab, new Vector3(x * spacing, Random.Range(-heightVariance, 0f), z * spacing) + transform.position, Quaternion.identity);
                     cube.transform.localScale = new Vector3(width, height, width);
+
+                    if (Random.value <= climbablePillarPercange) 
+                    {
+                        cube.GetComponent<MeshRenderer>().material = climbablePillarMatrial;
+                        cube.tag = clibmablePilalrTag;
+                    }
                 }
             }
         }
