@@ -570,6 +570,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7566481004128989705, guid: bcf837f0c3c5d864583024272283476c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566481004128989705, guid: bcf837f0c3c5d864583024272283476c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566481004128989705, guid: bcf837f0c3c5d864583024272283476c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7598160201097217286, guid: bcf837f0c3c5d864583024272283476c, type: 3}
       propertyPath: m_Name
       value: Spirits
