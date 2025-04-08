@@ -38,7 +38,7 @@ namespace MONUMENT
 
             this.Points += points;
 
-            if (this.Points > pointsToWin) 
+            if (this.Points >= pointsToWin) 
             { 
                 this.Points = pointsToWin;
                 onComplete?.Invoke();

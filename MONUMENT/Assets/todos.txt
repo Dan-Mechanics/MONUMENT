@@ -21,3 +21,9 @@ then its more difficult for flynn to push stuff i think.
 je kan misschien nog de feature maken dat spritis je omhoog helpen ??
 
 progress video maken ? trailer maken ??
+
+===
+
+voor de colormathc moet je het maken met events beter en
+dan is er een manager script die events raised voor de colors,
+maar for now werkt het gewoon.
