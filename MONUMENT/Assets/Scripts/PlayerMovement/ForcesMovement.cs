@@ -3,11 +3,6 @@ using System;
 
 namespace MONUMENT
 {
-    /// <summary>
-    /// Project add pixelated look with rendertextur.
-    /// 
-    /// Gotta try unity unit tests !! poggg
-    /// </summary>
     public class ForcesMovement : MonoBehaviour
     {
         public Action<float> OnGainSpiritPoints;
