@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 1174473001}
   - component: {fileID: 3700193763224276230}
   m_Layer: 8
-  m_Name: Player
+  m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,6 +451,7 @@ MonoBehaviour:
   rb: {fileID: 6723172472626007673}
   eyes: {fileID: 4353114958330189048}
   handler: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 6d769322eebaade46a801c6183e6d082, type: 3}
   movementCutoffVelocityMagnitude: 5
   maxGroundedVelocity: 5
   maxUngroundedVelocity: 35

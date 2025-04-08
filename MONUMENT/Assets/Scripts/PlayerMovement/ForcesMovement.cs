@@ -11,12 +11,13 @@ namespace MONUMENT
     public class ForcesMovement : MonoBehaviour
     {
         public Action<float> OnGainSpiritPoints;
-        
+
         [Header("References")]
 
         [SerializeField] private Rigidbody rb = null;
         [SerializeField] private Transform eyes = null;
         [SerializeField] private CameraHandler handler = null;
+        [SerializeField] private AudioClip jumpSound = null;
 
         [Header("Movement Settings")]
 
@@ -42,7 +43,8 @@ namespace MONUMENT
         [SerializeField] private float groundColliderRadius = 0f;
         [SerializeField] private float groundColliderDownward = 0f;
         [SerializeField] private float maxGroundedAngle = 0f;
-        
+
+        private AudioSource audioSource;
 
         private bool isGrounded;
         private Vector3 wallJumpDirection;
@@ -55,6 +57,7 @@ namespace MONUMENT
         {
             //Application.targetFrameRate = 300;
             rb.sleepThreshold = 0f;
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -82,6 +85,12 @@ namespace MONUMENT
                 rb.AddForce(wallJumpDirection * wallJumpSpeedHorizontal, ForceMode.VelocityChange);
                 rb.AddForce(rb.velocity * velocityMult, ForceMode.VelocityChange);
 
+                //jump sound (wall)
+                float rndmPitch = UnityEngine.Random.Range(0.5f, 3f);
+                audioSource.pitch = rndmPitch;
+                audioSource.volume = 0.5f - (0.1f * rndmPitch);
+                audioSource.PlayOneShot(jumpSound);
+
                 OnGainSpiritPoints?.Invoke(pointsGainedWhenSpiritJump * 0.5f);
             }
         }
@@ -90,7 +99,7 @@ namespace MONUMENT
         {
             CheckIsGrounded();
 
-            if (Input.GetKey(KeyCode.H)) 
+            if (Input.GetKey(KeyCode.H))
             {
                 rb.AddForce(Vector3.up * 10f, ForceMode.VelocityChange);
             }
@@ -103,11 +112,11 @@ namespace MONUMENT
                 rb.AddForce(rb.velocity.y * Vector3.down, ForceMode.VelocityChange);
                 Vector3 vel = rb.velocity;
                 vel.y = 0f;
-                
+
                 rb.AddForce(-vel * 0.3f, ForceMode.VelocityChange);
             }
 
-            if (isWalled) 
+            if (isWalled)
             {
                 Vector3 vel = rb.velocity;
                 vel.y = 0f;
@@ -147,7 +156,7 @@ namespace MONUMENT
 
             Vector3 counterMovement = acceleration * Time.fixedDeltaTime * ungroundedAccelerationMultiplier * -(velocity.normalized - movement);
 
-            if (mag != 0f && counterMovement.magnitude > mag) { counterMovement = -velocity;  }
+            if (mag != 0f && counterMovement.magnitude > mag) { counterMovement = -velocity; }
 
             rb.AddForce(counterMovement, ForceMode.VelocityChange);
         }
@@ -166,7 +175,7 @@ namespace MONUMENT
                 if (Vector3.Angle(Vector3.up, hit.normal) <= maxGroundedAngle)
                 {
                     isGrounded = true;
-                    if (hit.transform.CompareTag("Cube") || hit.transform.CompareTag("Climbable")) 
+                    if (hit.transform.CompareTag("Cube") || hit.transform.CompareTag("Climbable"))
                     {
                         jumpBoosted = true;
                     }
@@ -183,7 +192,7 @@ namespace MONUMENT
             isWalled = false;
         }
 
-        private bool CheckWall(Vector3 dir) 
+        private bool CheckWall(Vector3 dir)
         {
             if (Physics.Raycast(transform.position, dir, out RaycastHit hit, wallRayLength, wallMask, QueryTriggerInteraction.Ignore) && hit.collider.CompareTag("Climbable"))
             {
