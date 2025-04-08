@@ -94,10 +94,10 @@ namespace MONUMENT
         {
             CheckIsGrounded();
 
-            if (Input.GetKey(KeyCode.H))
+            /*if (Input.GetKey(KeyCode.H))
             {
                 rb.AddForce(Vector3.up * 10f, ForceMode.VelocityChange);
-            }
+            }*/
 
             prevIsWalled = isWalled;
             CheckIsWalled();
@@ -136,7 +136,8 @@ namespace MONUMENT
             float mag = velocity.magnitude;
 
             bool speedIncrease = transform.position.y > speedIncreaseHeight;
-            if (speedIncrease) { movementCutoffVelocityMagnitude *= 1.5f; }
+            if (speedIncrease)
+                movementCutoffVelocityMagnitude *= 1.5f;
 
             if (mag < movementCutoffVelocityMagnitude)
             {
@@ -147,11 +148,13 @@ namespace MONUMENT
                 rb.AddForce(Vector3.ClampMagnitude(acceleration * Time.fixedDeltaTime * -velocity.normalized, mag - movementCutoffVelocityMagnitude), ForceMode.VelocityChange);
             }
 
-            if (speedIncrease) { movementCutoffVelocityMagnitude /= 1.5f; }
+            if (speedIncrease)
+                movementCutoffVelocityMagnitude /= 1.5f;
 
             Vector3 counterMovement = acceleration * Time.fixedDeltaTime * ungroundedAccelerationMultiplier * -(velocity.normalized - movement);
 
-            if (mag != 0f && counterMovement.magnitude > mag) { counterMovement = -velocity; }
+            if (mag != 0f && counterMovement.magnitude > mag)
+                counterMovement = -velocity;
 
             rb.AddForce(counterMovement, ForceMode.VelocityChange);
         }
@@ -165,15 +168,14 @@ namespace MONUMENT
 
             foreach (RaycastHit hit in hits)
             {
-                if (hit.distance == 0f) { continue; }
+                if (hit.distance == 0f)
+                    continue;
 
                 if (Vector3.Angle(Vector3.up, hit.normal) <= maxGroundedAngle)
                 {
                     isGrounded = true;
                     if (hit.transform.CompareTag("Cube") || hit.transform.CompareTag("Climbable"))
-                    {
                         jumpBoosted = true;
-                    }
                 }
             }
         }
